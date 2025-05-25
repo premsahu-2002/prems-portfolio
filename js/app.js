@@ -1,3 +1,5 @@
+
+
 const themeToggle = document.querySelector('.theme-toggle')
 themeToggle.addEventListener('click',()=>{
    document.body.classList.toggle('dark')
@@ -63,6 +65,7 @@ let splitHeading = SplitText.create(".section-one h1", {
 });
 let splitSub = SplitText.create(".section-one h3", { type: "words, chars" });
 let splith4 = SplitText.create("#skills h4", { type: "words, chars" });
+let splith2 = SplitText.create("#skills h2", { type: "words, chars" });
 
 tl.from(splitHeading.chars, {
   scrollTrigger: {
@@ -101,8 +104,9 @@ tl.from(splitHeading.chars, {
 
 gsap.from(splith4.chars, {
   scrollTrigger: {
-    trigger: splith4.chars,
-    start: "top bottom",
+    trigger: "#skills",
+    start: "top 20%",
+    end: "top top",
     scrub: 2,
     end: "top 60%",
   },
@@ -111,6 +115,19 @@ gsap.from(splith4.chars, {
   stagger: 0.8,
   ease: "back",
 });
+
+gsap.from(splith2.words , {
+  scrollTrigger:{
+    trigger: '#skills',
+    start: 'top center',
+    end: 'top top',
+    scrub: 2,
+  },
+  opacity: 0,
+  duration: 0.5,
+  left: '-1000px'
+
+})
 
 document.querySelector(".container").addEventListener("mousemove", (e) => {
   if (e.clientX > 705) {
@@ -132,11 +149,22 @@ document.querySelector(".container").addEventListener("mousemove", (e) => {
 });
 
 
+  gsap.from(".section-one svg ", {
+    scrollTrigger: {
+      trigger: ".section-one",
+      start: 'top bottom',
+      scrub: true
+    },
+    
+    yoyo : true,
+    duration: 3,
+    width: 0
+  });
+
 document.addEventListener("DOMContentLoaded",()=>{ 
    const theme = localStorage.getItem('theme')
    document.body.style.display = 'block'
    if(!theme) return
    document.body.className = theme 
 
-   init()
 })

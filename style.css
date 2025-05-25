@@ -1,3 +1,7 @@
+/* Google fonts imports  */
+/* Outfit */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -217,6 +221,8 @@ img {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
+  z-index: -999;
 
   h1 {
     font-size: 150px;
@@ -238,6 +244,30 @@ img {
     font-size: 74px;
     width: fit-content;
   }
+
+ 
+  h2{
+    color: #fbc000;
+    font-size: 80px;
+    position: absolute;
+    right: 5%;
+    bottom: 12%;
+    align-self: flex-end;
+  }
+
+  .laptop-overlay{
+    width: 100%;
+    max-width: 300px;
+    position: absolute;
+    right: 5%;
+    bottom: 20%;
+    z-index: 999;
+    img{
+      mix-blend-mode: multiply;
+    }
+  }
+
+ 
 }
 
 .section-two {
@@ -247,14 +277,7 @@ img {
   max-width: 1280px;
   margin: 0 auto;
 
-  .circle {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0%;
-    left: -100%;
-    background: greenyellow;
-  }
+  
 }
 
 .section-three{
@@ -316,6 +339,12 @@ img {
 }
 
 @media screen and (max-width: 640px) {
+
+  .section-one .laptop-overlay{
+    z-index: 999;
+    width: 240px;
+  }
+
   nav {
     height: 60px;
     padding: 0 12px;
@@ -330,6 +359,7 @@ img {
   .absolute {
     bottom: 4%;
   }
+
 
   .container {
     height: calc(55vh - 60px);
@@ -348,6 +378,19 @@ img {
       font-size: 10px;
     }
   }
+
+  #skills {
+    h1 {
+      font-size: 100px;
+    }
+    h3{
+      font-size: 80px;
+    }
+    h2{
+      font-size: 40px;
+    }
+  }
+
   .theme-toggle {
     height: 25px;
     width: 50px;
