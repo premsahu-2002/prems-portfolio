@@ -1,0 +1,142 @@
+const themeToggle = document.querySelector('.theme-toggle')
+themeToggle.addEventListener('click',()=>{
+   document.body.classList.toggle('dark')
+   document.body.style.transition = '0.3s linear'
+   const theme = document.body.className
+   console.log(theme)
+   localStorage.setItem('theme',theme)
+})
+
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+const tl = gsap.timeline({ default: { opacity: 0 } });
+
+gsap.from(".marquee p", {
+  scrollTrigger: {
+    trigger: ".marquee",
+    start: "top 60%",
+    scrub: 3,
+  }, // start the animation when ".box" enters the viewport (once)
+  xPercent: -100,
+  duration: 3,
+  yoyo: true,
+});
+gsap.from("nav", {
+  scrollTrigger: {
+    trigger: ".marquee",
+    start: "top 10px",
+    scrub: 3,
+  }, // start the animation when ".box" enters the viewport (once)
+
+  duration: 3,
+  yoyo: true,
+});
+
+gsap.to(".section-two .circle", {
+  scrollTrigger: {
+    trigger: ".section-two",
+    end: "bottom bottom",
+    scrub: 1,
+  }, // start the animation when ".box" enters the viewport (once)
+  xPercent: 100,
+  ease: "linear",
+  delay: 1,
+  duration: 2,
+  yoyo: true,
+});
+
+gsap.from(".paint-art", {
+  scale: 0.9,
+  opacity: 0.7,
+  ease: "back",
+  duration: 3,
+});
+gsap.from(".not-robot img", {
+  opacity: 0,
+  ease: "back",
+  duration: 3,
+});
+
+
+let splitHeading = SplitText.create(".section-one h1", {
+  type: "words, chars",
+});
+let splitSub = SplitText.create(".section-one h3", { type: "words, chars" });
+let splith4 = SplitText.create("#skills h4", { type: "words, chars" });
+
+tl.from(splitHeading.chars, {
+  scrollTrigger: {
+    trigger: ".marquee",
+    start: "bottom 70%",
+    scrub: 2,
+    triggerEnd: ".section-one",
+    end: "top 25%",
+  },
+  yPercent: -100,
+  stagger: 0.5,
+})
+  .from(splitSub.chars, {
+    scrollTrigger: {
+      trigger: ".marquee",
+      start: "bottom 70%",
+      scrub: 2,
+      triggerEnd: ".section-one",
+      end: "top 25%",
+    },
+    yPercent: 100,
+    stagger: 0.5,
+    ease: "back",
+  })
+  .to("nav", {
+    scrollTrigger: {
+      trigger: ".section-one",
+      start: "top 20%",
+      // endTrigger: '.section-three',
+      end: "top 20%",
+      scrub: 3,
+    },
+    top: "88%",
+    yoyo: true,
+  });
+
+gsap.from(splith4.chars, {
+  scrollTrigger: {
+    trigger: splith4.chars,
+    start: "top bottom",
+    scrub: 2,
+    end: "top 60%",
+  },
+  transformOrigin: "bottom",
+  scale: 0,
+  stagger: 0.8,
+  ease: "back",
+});
+
+document.querySelector(".container").addEventListener("mousemove", (e) => {
+  if (e.clientX > 705) {
+    gsap.to(".absolute img", {
+      x: -10,
+      duration: 2,
+      ease: "linear",
+      delay: 0.5,
+    });
+  }
+  if (e.clientX < 705) {
+    gsap.to(".absolute img", {
+      x: 10,
+      ease: "linear",
+      duration: 3,
+      delay: 0.3,
+    });
+  }
+});
+
+
+document.addEventListener("DOMContentLoaded",()=>{ 
+   const theme = localStorage.getItem('theme')
+   document.body.style.display = 'block'
+   if(!theme) return
+   document.body.className = theme 
+
+   init()
+})
