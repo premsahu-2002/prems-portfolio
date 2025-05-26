@@ -13,6 +13,10 @@ body {
   scroll-behavior: smooth;
 }
 
+a{
+  cursor: pointer;
+}
+
 nav {
   position: sticky;
   top: 0;
@@ -222,7 +226,7 @@ img {
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  z-index: -999;
+  z-index: -99;
 
   h1 {
     font-size: 150px;
@@ -249,35 +253,111 @@ img {
   h2{
     color: #fbc000;
     font-size: 80px;
+    z-index: 99;
     position: absolute;
     right: 5%;
     bottom: 12%;
     align-self: flex-end;
   }
 
-  .laptop-overlay{
-    width: 100%;
-    max-width: 300px;
-    position: absolute;
-    right: 5%;
-    bottom: 20%;
+  .projects{
+    padding: 8px;
+    background: lightgoldenrodyellow;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(2,1fr);
     z-index: 999;
-    img{
-      mix-blend-mode: multiply;
-    }
+
+
+    
+
   }
 
+  
  
 }
 
 .section-two {
+  padding: 2rem;
   z-index: -999;
   overflow: hidden;
   position: relative;
   max-width: 1280px;
   margin: 0 auto;
+  font-family:  "Outfit";
 
-  
+  h1{
+    color: deeppink;
+    font-weight: 500;
+    opacity: 0.9;
+    font-size: 80px;
+    padding: 5px;
+  }
+  div.line{
+    height: 8px ;
+    max-width: 700px;
+    margin: 0 5px;
+    background: linear-gradient(to right , orangered , cyan);
+  }
+
+  .section-three-container{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    max-width: 900px;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+
+  .items {
+    display: flex;
+    gap: 2rem;
+
+    .image{
+      max-width: 50px;
+      aspect-ratio: 1/1;
+      mix-blend-mode: multiply;
+    }
+    .progress{
+      flex: 1;
+      height: 45px;
+      border: 2px solid #e7e7e7;
+      /* border-radius: 50px; */
+    }
+    
+    .fill{
+      /* border-radius: 50px; */
+      height: 100%;
+    }
+  }
+
+
+.next{
+  width: 78%;
+  background: linear-gradient(to left ,  purple , rgb(62, 61, 61) , coral );
+}
+.react{
+  width: 67%;
+  background: linear-gradient(to left ,  #5ED5FB , rgb(62, 61, 61) , coral );
+}
+.tailwind{
+  width: 83%;
+  background: linear-gradient(to left ,  #0BC0B8 , rgb(62, 61, 61) , coral );
+}
+.ts{
+  width: 85%;
+  background: linear-gradient(to left ,  #2C76C7 , rgb(62, 61, 61) , coral );
+}
+.js{
+  width: 92%;
+  background: linear-gradient(to left ,  #E9D54F , rgb(62, 61, 61) , coral );
+}
+.python{
+  width: 85%;
+  background: linear-gradient(to left ,    #3777AC , #E9D54F , coral );
+}
+
+
 }
 
 .section-three{
@@ -336,6 +416,24 @@ img {
       font-size: 110px;
     }
   }
+
+  .section-two{
+
+    h1{
+      color: #5ED5FB;
+    }
+
+    .items{
+      z-index: 99;
+    }
+
+    .next-logo{
+      background: white;
+      border-radius: 50px;
+    }
+   
+  }
+
 }
 
 @media screen and (max-width: 640px) {
@@ -343,6 +441,20 @@ img {
   .section-one .laptop-overlay{
     z-index: 999;
     width: 240px;
+  }
+
+  .section-two {
+
+    h1{
+      font-size: 70px;
+    }
+
+    .progress{
+      height: 25px;
+    }
+    .image{
+      width: 40px;
+    }
   }
 
   nav {

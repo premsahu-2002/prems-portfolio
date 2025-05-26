@@ -2,14 +2,21 @@
 
 const themeToggle = document.querySelector('.theme-toggle')
 themeToggle.addEventListener('click',()=>{
-   document.body.classList.toggle('dark')
-   document.body.style.transition = '0.3s linear'
+  document.body.classList.toggle('dark')
+  document.body.style.transition = '0.3s linear'
    const theme = document.body.className
    console.log(theme)
    localStorage.setItem('theme',theme)
-})
-
-
+  })
+  
+  document.addEventListener("DOMContentLoaded",()=>{ 
+     const theme = localStorage.getItem('theme')
+     document.body.style.display = 'block'
+     if(!theme) return
+     document.body.className = theme 
+  
+  })
+  
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 const tl = gsap.timeline({ default: { opacity: 0 } });
 
@@ -34,18 +41,6 @@ gsap.from("nav", {
   yoyo: true,
 });
 
-gsap.to(".section-two .circle", {
-  scrollTrigger: {
-    trigger: ".section-two",
-    end: "bottom bottom",
-    scrub: 1,
-  }, // start the animation when ".box" enters the viewport (once)
-  xPercent: 100,
-  ease: "linear",
-  delay: 1,
-  duration: 2,
-  yoyo: true,
-});
 
 gsap.from(".paint-art", {
   scale: 0.9,
@@ -149,22 +144,17 @@ document.querySelector(".container").addEventListener("mousemove", (e) => {
 });
 
 
-  gsap.from(".section-one svg ", {
-    scrollTrigger: {
-      trigger: ".section-one",
-      start: 'top bottom',
-      scrub: true
-    },
-    
-    yoyo : true,
-    duration: 3,
-    width: 0
-  });
 
-document.addEventListener("DOMContentLoaded",()=>{ 
-   const theme = localStorage.getItem('theme')
-   document.body.style.display = 'block'
-   if(!theme) return
-   document.body.className = theme 
-
-})
+gsap.from('.fill',{
+scrollTrigger: {
+trigger: '.section-two',
+start: '20% 90%',
+end: "bottom bottom",
+scrub: 1
+},
+stagger: 1,
+duration: 1.4,
+ease: 'back',
+width: '0%'
+}
+)
