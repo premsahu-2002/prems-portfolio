@@ -87,13 +87,13 @@ tl.from(splitHeading.chars, {
   })
   .to("nav", {
     scrollTrigger: {
-      trigger: ".section-one",
-      start: "top 20%",
-      // endTrigger: '.section-three',
-      end: "top 20%",
+      trigger: ".project-section",
+      start: "top top",
+      end: "top 0",
       scrub: 3,
     },
-    top: "88%",
+    borderTop: '1px solid #ddd',
+    top: "90%",
     yoyo: true,
   });
 
@@ -131,6 +131,7 @@ document.querySelector(".container").addEventListener("mousemove", (e) => {
       duration: 2,
       ease: "linear",
       delay: 0.5,
+      yoyo:true
     });
   }
   if (e.clientX < 705) {
@@ -139,6 +140,7 @@ document.querySelector(".container").addEventListener("mousemove", (e) => {
       ease: "linear",
       duration: 3,
       delay: 0.3,
+      yoyo: true,
     });
   }
 });
@@ -158,3 +160,20 @@ ease: 'back',
 width: '0%'
 }
 )
+
+
+gsap.from(".proj-container img", {
+  scrollTrigger: {
+    trigger: ".proj-container",
+    start: "top 80%",
+    end: "top bottom",
+    scrub: 2,
+  },
+  stagger: 1.5,
+  opacity: 0,
+  yPercent: -100,
+  duration: 3,
+  yoyo: true,
+  ease: 'back'
+});
+

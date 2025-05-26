@@ -11,6 +11,7 @@
 body {
   display: none;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 a{
@@ -214,6 +215,56 @@ img {
   min-height: 100vh;
   color: black;
 }
+/* project section */
+
+
+.project-section{
+  z-index: 999;
+  padding: 2rem 1rem;
+width: 100%;
+max-width: 1280px;
+margin: auto;
+
+h1{
+  color: #0BC0B8;
+  font-size: 80px;
+  margin: 1rem 0 3rem;
+  font-family: 'Helvetica';
+}
+
+  .proj-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2rem;
+  }
+  .card{
+    display: block;
+    text-decoration: none;
+  }
+  .image{
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    padding: 0.8rem 0;
+    padding-left: 1rem;
+    background: #F8F8FF;
+    box-shadow: 0px 0px 5px #c6c6d7;
+  }
+  img{
+    
+    mix-blend-mode: multiply;
+  }
+  p{
+    font-weight: 400;
+    font-size: medium;
+    text-transform: capitalize;
+    font-family: "Helvetica";
+    margin: 0.8rem 0 0 0.4rem;
+    text-align: center;
+    color: #323232;
+  }
+}
+
 
 /* Section 01 */
 
@@ -263,13 +314,8 @@ img {
   .projects{
     padding: 8px;
     background: lightgoldenrodyellow;
-    display: grid;
     gap: 8px;
-    grid-template-columns: repeat(2,1fr);
     z-index: 999;
-
-
-    
 
   }
 
@@ -370,6 +416,17 @@ img {
   background: #323232;
   color: white;
 
+.card .image{
+  background: #dedce4;
+  mix-blend-mode: normal;
+  
+}
+
+.project-section{
+  
+  h1{
+    color: lightsalmon;
+  }}
 .section,nav{
   background: #323232;
 }
@@ -436,7 +493,44 @@ img {
 
 }
 
+@media screen and (max-width: 1080px){
+
+  .project-section{
+  
+    h1{
+      padding-left: 1rem;
+      color: yellow;
+      background:  #2C76C7;
+    }
+    
+    .proj-container{
+      gap: 1.6rem;
+      grid-template-columns: repeat(3,1fr);
+    }
+  }
+  .section-three-container{
+    margin-left: 1rem;
+  }
+}
+
 @media screen and (max-width: 640px) {
+
+
+  .project-section{
+
+    
+    .proj-container{
+      gap: 1.2rem;
+      grid-template-columns: repeat(2,1fr);
+      p{
+        font-size: small;
+        &:hover{
+          scale: 1.02;
+          transition: 0.1s linear;
+        }
+      }
+    }
+  }
 
   .section-one .laptop-overlay{
     z-index: 999;
@@ -444,6 +538,10 @@ img {
   }
 
   .section-two {
+
+    .section-three-container{
+      margin-left: 1rem;
+    }
 
     h1{
       font-size: 70px;
