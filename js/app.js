@@ -10,26 +10,31 @@ themeToggle.addEventListener('click',()=>{
   })
   
   document.addEventListener("DOMContentLoaded",()=>{ 
-     const theme = localStorage.getItem('theme')
-     document.body.style.display = 'block'
-     if(!theme) return
-     document.body.className = theme 
-  
+    const theme = localStorage.getItem('theme')
+    document.body.style.display = 'block'
+    if(!theme) return
+    document.body.className = theme 
+    
   })
   
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
-const tl = gsap.timeline({ default: { opacity: 0 } });
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+  const tl = gsap.timeline({ default: { opacity: 0 } });
 
-gsap.from(".marquee p", {
+
+
+
+gsap.to('.marquee span ',{
   scrollTrigger: {
-    trigger: ".marquee",
-    start: "top 60%",
-    scrub: 3,
-  }, // start the animation when ".box" enters the viewport (once)
-  xPercent: -100,
-  duration: 3,
+    trigger: '.marquee',
+    start: 'top 90%',
+    end: 'top 20%',
+    scrub:3
+  },
   yoyo: true,
-});
+  x : -1300,
+  duration: 2
+})
+
 gsap.from("nav", {
   scrollTrigger: {
     trigger: ".marquee",
@@ -160,6 +165,21 @@ ease: 'back',
 width: '0%'
 }
 )
+gsap.from(".progress span",{
+  scrollTrigger: {
+    trigger: '.section-one',
+    start: "bottom 80%",
+    end: 'bottom 2%',
+    scrub: true
+  },
+  right: -200,
+  stagger: 0.5,
+  duration: 4,
+  ease: 'back',
+  yoyo: true
+})
+
+
 
 
 gsap.from(".proj-container img", {
@@ -177,3 +197,28 @@ gsap.from(".proj-container img", {
   ease: 'back'
 });
 
+
+gsap.from('.image-right img',{
+  scrollTrigger:{
+    trigger: '.image-right',
+    start: 'top bottom',
+    end: 'top 60%',
+    scrub:1
+  },
+  duration: 3,
+  ease: 'linear',
+  yPercent: -100
+})
+gsap.from('.image-left img',{
+  scrollTrigger:{
+    trigger: '.image-left',
+    start: 'bottom bottom',
+    endTrigger: '.section-one',
+
+    end: 'bottom bottom',
+    scrub:1
+  },
+  duration: 3,
+  ease: 'linear',
+  yPercent: 100
+})
