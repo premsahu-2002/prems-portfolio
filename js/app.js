@@ -64,13 +64,13 @@ let splitHeading = SplitText.create(".section-one h1", {
   type: "words, chars",
 });
 let splitSub = SplitText.create(".section-one h3", { type: "words, chars" });
-let splith4 = SplitText.create("#skills h4", { type: "words, chars" });
-let splith2 = SplitText.create("#skills h2", { type: "words, chars" });
+let splith4 = SplitText.create(".section-one h4", { type: "words, chars" });
+let splith2 = SplitText.create(".section-one h2", { type: "words, chars" });
 
 tl.from(splitHeading.chars, {
   scrollTrigger: {
-    trigger: ".marquee",
-    start: "bottom 70%",
+    trigger: ".section-one",
+    start: "top bottom",
     scrub: 2,
     triggerEnd: ".section-one",
     end: "top 25%",
@@ -80,8 +80,8 @@ tl.from(splitHeading.chars, {
 })
   .from(splitSub.chars, {
     scrollTrigger: {
-      trigger: ".marquee",
-      start: "bottom 70%",
+      trigger: ".section-one",
+      start: "top 70%",
       scrub: 2,
       triggerEnd: ".section-one",
       end: "top 25%",
@@ -104,13 +104,12 @@ tl.from(splitHeading.chars, {
 
 gsap.from(splith4.chars, {
   scrollTrigger: {
-    trigger: "#skills",
-    start: "top 20%",
-    end: "top top",
+    trigger: splith4.chars,
     scrub: 2,
-    end: "top 60%",
+    end: "top center"
   },
   transformOrigin: "bottom",
+  duration: 2,
   scale: 0,
   stagger: 0.8,
   ease: "back",
@@ -118,7 +117,7 @@ gsap.from(splith4.chars, {
 
 gsap.from(splith2.words , {
   scrollTrigger:{
-    trigger: '#skills',
+    trigger: '.section-one',
     start: 'top center',
     end: 'top top',
     scrub: 2,
