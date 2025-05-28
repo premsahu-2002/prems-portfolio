@@ -221,3 +221,21 @@ gsap.from('.image-left img',{
   ease: 'linear',
   yPercent: 100
 })
+
+const form = document.querySelector('.form form')
+form.addEventListener('submit',(e)=>{
+  e.preventDefault()
+  e.target.reset()
+  const button = e.target.querySelector('button')
+  console.log(button)
+  button.style.backgroundColor = 'orangered'
+  button.style.color = 'white'
+  button.textContent= 'Sent Successfully..'
+  setTimeout(() => {
+    
+    button.style.color = 'black'
+    button.style.backgroundColor = 'orange'
+    button.textContent= 'Send Message'
+    
+  }, 2000);
+})

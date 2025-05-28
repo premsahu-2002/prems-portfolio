@@ -2,6 +2,7 @@
 /* Outfit */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
+
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +13,10 @@ body {
   display: none;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  @font-face {
+    font-family: 'Helvetica';
+    src: url('./fonts/helvetica/Helvetica-Bold.ttf');
+  }
 }
 
 a{
@@ -353,7 +358,7 @@ text-transform: uppercase;
 
   .image-left{
     left: 4rem;
-    bottom: 7rem;
+    bottom: 4rem;
     max-width:250px;
   }
 
